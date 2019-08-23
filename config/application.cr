@@ -20,3 +20,8 @@ require "../src/models/**"
 require "../src/controllers/application_controller"
 require "../src/controllers/**"
 require "./routes"
+
+Amber::Server.configure do |settings|
+  settings.host = "0.0.0.0"
+  settings.port = ENV["PORT"].to_i if ENV["PORT"]?
+end
